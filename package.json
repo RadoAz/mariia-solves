@@ -12,10 +12,12 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.9",
     "@fontsource-variable/cormorant-garamond": "^5.2.6",
     "@fontsource-variable/montserrat": "^5.2.8",
     "@tailwindcss/vite": "^4.3.0",
     "astro": "^6.4.5",
-    "tailwindcss": "^4.3.0"
+    "tailwindcss": "^4.3.0",
+    "typescript": "^6.0.3"
   }
 }
