@@ -1,0 +1,19 @@
+---
+import { nav } from "../data/content";
+---
+<header class="sticky top-0 z-50 border-b border-bronze/15 bg-milk/80 backdrop-blur">
+  <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+    <a href="#top" class="font-serif text-xl leading-none tracking-wide">
+      MARIIA<br /><span class="text-bronze-dark">SOLVES</span>
+    </a>
+    <nav class="hidden gap-7 md:flex" aria-label="Main navigation">
+      {nav.map((i) => (
+        <a href={i.href} class="label hover:text-bronze">{i.label}</a>
+      ))}
+    </nav>
+    <a href="#contact"
+       class="rounded-sm border border-bronze px-4 py-2 text-xs uppercase tracking-widest text-bronze-dark transition hover:bg-bronze hover:text-milk">
+      Book a Consultation
+    </a>
+  </div>
+</header>
