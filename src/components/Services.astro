@@ -1,0 +1,19 @@
+---
+import Icon from "./Icon.astro";
+import { services } from "../data/content";
+---
+<section id="services" class="bg-milk">
+  <div class="mx-auto max-w-6xl px-6 py-20 text-center">
+    <p class="label">{services.label}</p>
+    <h2 class="mt-2 font-serif text-4xl md:text-5xl">{services.heading}</h2>
+    <div class="mt-12 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
+      {services.items.map((s) => (
+        <div class="flex flex-col items-center gap-3 px-2">
+          <Icon name={s.icon} class="h-8 w-8 text-bronze" />
+          <h3 class="label">{s.title}</h3>
+          <p class="max-w-xs text-sm leading-relaxed text-muted">{s.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
