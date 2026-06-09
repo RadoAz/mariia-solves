@@ -1,0 +1,23 @@
+---
+import "../styles/global.css";
+import { site } from "../data/content";
+const description =
+  "Mariia Solves — Personal Assistant, Consultant & Concierge. Research, hiring, travel, business and lifestyle support. Kyiv / Worldwide.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{site.name} — {site.tagline}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={`${site.name} — ${site.tagline}`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body class="bg-milk text-ink antialiased">
+    <slot />
+  </body>
+</html>
