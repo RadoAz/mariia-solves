@@ -6,7 +6,7 @@ import { nav } from "../data/content";
     <a href="#top" class="font-serif text-xl leading-none tracking-wide">
       MARIIA<br /><span class="text-bronze-dark">SOLVES</span>
     </a>
-    <nav class="hidden gap-7 md:flex">
+    <nav class="hidden gap-7 md:flex" aria-label="Main navigation">
       {nav.map((i) => (
         <a href={i.href} class="label hover:text-bronze">{i.label}</a>
       ))}

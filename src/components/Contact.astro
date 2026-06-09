@@ -9,7 +9,7 @@ import { contact } from "../data/content";
     <div class="md:col-span-1">
       <h2 class="font-serif text-4xl leading-tight md:text-5xl">{contact.heading}</h2>
       <p class="mt-4 text-sm text-muted">{contact.body}</p>
-      <Image src={contactImg} alt="Mariia" widths={[400, 700]}
+      <Image src={contactImg} alt="Mariia" widths={[400, 700]} sizes="(min-width: 768px) 33vw, 100vw"
         class="mt-6 h-64 w-full rounded-sm object-cover" />
     </div>
 
@@ -32,11 +32,11 @@ import { contact } from "../data/content";
     <form id="contact-form" class="md:col-span-1 space-y-3">
       <input type="text" name="company" tabindex="-1" autocomplete="off"
              class="hidden" aria-hidden="true" />
-      <input required name="name" placeholder="Your name"
+      <input required name="name" placeholder="Your name" aria-label="Your name"
              class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze" />
-      <input required type="email" name="email" placeholder="Your email"
+      <input required type="email" name="email" placeholder="Your email" aria-label="Your email"
              class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze" />
-      <textarea required name="message" rows="4" placeholder="How can I help you?"
+      <textarea required name="message" rows="4" placeholder="How can I help you?" aria-label="How can I help you?"
              class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze"></textarea>
       <button type="submit"
              class="w-full rounded-sm bg-bronze px-6 py-3 text-xs uppercase tracking-widest text-milk transition hover:bg-bronze-dark disabled:opacity-60">

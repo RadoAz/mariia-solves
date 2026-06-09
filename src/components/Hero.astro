@@ -5,7 +5,7 @@ import { hero } from "../data/content";
 ---
 <section class="grid items-stretch md:grid-cols-2">
   <div class="min-h-[60vh] md:min-h-[88vh]">
-    <Image src={heroImg} alt="Mariia" widths={[480, 800, 1200]}
+    <Image src={heroImg} alt="Mariia" widths={[480, 800, 1200]} sizes="(min-width: 768px) 50vw, 100vw"
       class="h-full w-full object-cover" loading="eager" />
   </div>
   <div class="flex flex-col items-center justify-center gap-5 bg-cream px-6 py-16 text-center">
