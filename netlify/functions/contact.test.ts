@@ -41,11 +41,20 @@ describe("contact handler", () => {
     expect(sent.text).toContain("Anna");
     expect(sent.text).toContain("a@b.co");
     expect(sent.text).toContain("Need help");
+    expect(sent.disable_web_page_preview).toBe(true);
   });
 
   it("returns 502 when Telegram call fails", async () => {
     vi.stubGlobal("fetch", vi.fn(async () => ({ ok: false, json: async () => ({ ok: false }) })) as any);
     const res = await handler(evt({ name: "Anna", email: "a@b.co", message: "Need help" }), ctx);
     expect(res.statusCode).toBe(502);
+  });
+
+  it("returns 500 when Telegram env vars are not configured", async () => {
+    delete process.env.TELEGRAM_BOT_TOKEN;
+    delete process.env.TELEGRAM_CHAT_ID;
+    const res = await handler(evt({ name: "Anna", email: "a@b.co", message: "Need help" }), ctx);
+    expect(res.statusCode).toBe(500);
+    expect(fetch).not.toHaveBeenCalled();
   });
 });
