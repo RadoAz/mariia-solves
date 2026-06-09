@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import heroImg from "../assets/hero.jpg";
+import { hero } from "../data/content";
+---
+<section class="grid items-stretch md:grid-cols-2">
+  <div class="min-h-[60vh] md:min-h-[88vh]">
+    <Image src={heroImg} alt="Mariia" widths={[480, 800, 1200]}
+      class="h-full w-full object-cover" loading="eager" />
+  </div>
+  <div class="flex flex-col items-center justify-center gap-5 bg-cream px-6 py-16 text-center">
+    <h1 class="font-serif text-6xl tracking-tight md:text-7xl">{hero.name}</h1>
+    <p class="label">{hero.subtitle}</p>
+    <div class="h-px w-10 bg-bronze"></div>
+    <p class="label">{hero.tags.join(" • ")}</p>
+    <p class="label">{hero.tagsLine2}</p>
+    <p class="label mt-2">{hero.location}</p>
+    <div class="mt-4 flex flex-wrap justify-center gap-3">
+      <a href="#contact" class="rounded-sm bg-bronze px-6 py-3 text-xs uppercase tracking-widest text-milk transition hover:bg-bronze-dark">Book a Consultation</a>
+      <a href="#contact" class="rounded-sm border border-bronze px-6 py-3 text-xs uppercase tracking-widest text-bronze-dark transition hover:bg-bronze hover:text-milk">Send a Request</a>
+    </div>
+  </div>
+</section>
