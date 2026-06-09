@@ -1,0 +1,48 @@
+---
+import { Image } from "astro:assets";
+import contactImg from "../assets/contact.jpg";
+import Icon from "./Icon.astro";
+import { contact } from "../data/content";
+---
+<section id="contact" class="bg-cream">
+  <div class="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-3">
+    <div class="md:col-span-1">
+      <h2 class="font-serif text-4xl leading-tight md:text-5xl">{contact.heading}</h2>
+      <p class="mt-4 text-sm text-muted">{contact.body}</p>
+      <Image src={contactImg} alt="Mariia" widths={[400, 700]}
+        class="mt-6 h-64 w-full rounded-sm object-cover" />
+    </div>
+
+    <div class="md:col-span-1">
+      <p class="label">Get in Touch</p>
+      <ul class="mt-4 space-y-3">
+        {contact.socials.map((s) => (
+          <li>
+            <a href={s.href} target="_blank" rel="noopener"
+               class="flex items-center gap-3 text-sm text-ink transition hover:text-bronze">
+              <Icon name={s.kind} class="h-5 w-5 text-bronze" />
+              {s.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="mt-6 text-xs text-muted">{contact.responseNote}</p>
+    </div>
+
+    <form id="contact-form" class="md:col-span-1 space-y-3">
+      <input type="text" name="company" tabindex="-1" autocomplete="off"
+             class="hidden" aria-hidden="true" />
+      <input required name="name" placeholder="Your name"
+             class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze" />
+      <input required type="email" name="email" placeholder="Your email"
+             class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze" />
+      <textarea required name="message" rows="4" placeholder="How can I help you?"
+             class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze"></textarea>
+      <button type="submit"
+             class="w-full rounded-sm bg-bronze px-6 py-3 text-xs uppercase tracking-widest text-milk transition hover:bg-bronze-dark disabled:opacity-60">
+        Send a Request
+      </button>
+      <p id="form-status" role="status" aria-live="polite" class="hidden text-sm"></p>
+    </form>
+  </div>
+</section>
