@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@import "@fontsource-variable/cormorant-garamond";
+@import "@fontsource-variable/montserrat";
+
+@theme {
+  --color-cream: #f4efe7;
+  --color-milk: #fbf8f3;
+  --color-sand: #efe7da;
+  --color-ink: #2c2622;
+  --color-muted: #6b6258;
+  --color-bronze: #a8835c;
+  --color-bronze-dark: #8c6a45;
+
+  --font-serif: "Cormorant Garamond Variable", Georgia, serif;
+  --font-sans: "Montserrat Variable", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-ink);
+  background-color: var(--color-milk);
+}
+
+/* Утилита для «лейблов»: верхний регистр с разрядкой */
+.label {
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-bronze-dark);
+}
