@@ -1,0 +1,18 @@
+---
+import Icon from "./Icon.astro";
+import { whyMe } from "../data/content";
+---
+<section id="about-me" class="bg-milk">
+  <div class="mx-auto max-w-6xl px-6 py-20">
+    <p class="label text-center">{whyMe.label}</p>
+    <div class="mt-12 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-5">
+      {whyMe.items.map((w) => (
+        <div class="flex flex-col items-center gap-3 text-center">
+          <Icon name={w.icon} class="h-7 w-7 text-bronze" />
+          <h3 class="label">{w.title}</h3>
+          <p class="max-w-[14rem] text-sm leading-relaxed text-muted">{w.text}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
