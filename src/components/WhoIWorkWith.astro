@@ -1,0 +1,16 @@
+---
+import { getContent } from "../data/content";
+const { whoIWorkWith } = getContent(Astro.currentLocale);
+---
+<section id="who" class="bg-sand">
+  <div class="mx-auto max-w-5xl px-6 py-20 text-center">
+    <p class="label">{whoIWorkWith.label}</p>
+    <ul class="mx-auto mt-10 grid max-w-3xl gap-3 sm:grid-cols-2">
+      {whoIWorkWith.items.map((item) => (
+        <li class="rounded-sm border border-bronze/25 bg-milk px-5 py-4 text-sm text-ink">
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

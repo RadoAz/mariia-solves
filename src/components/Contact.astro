@@ -2,7 +2,8 @@
 import { Image } from "astro:assets";
 import contactImg from "../assets/contact.jpg";
 import Icon from "./Icon.astro";
-import { contact } from "../data/content";
+import { getContent } from "../data/content";
+const { contact, ui } = getContent(Astro.currentLocale);
 ---
 <section id="contact" class="bg-cream">
   <div class="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-3">
@@ -14,7 +15,7 @@ import { contact } from "../data/content";
     </div>
 
     <div class="md:col-span-1">
-      <p class="label">Get in Touch</p>
+      <p class="label">{ui.getInTouch}</p>
       <ul class="mt-4 space-y-3">
         {contact.socials.map((s) => (
           <li>
@@ -29,18 +30,20 @@ import { contact } from "../data/content";
       <p class="mt-6 text-xs text-muted">{contact.responseNote}</p>
     </div>
 
-    <form id="contact-form" class="md:col-span-1 space-y-3">
+    <form id="contact-form" class="md:col-span-1 space-y-3"
+          data-sending={ui.sending} data-sent={ui.sent} data-send={ui.sendRequest}
+          data-success={ui.successMsg} data-error={ui.errorMsg}>
       <input type="text" name="company" tabindex="-1" autocomplete="off"
              class="hidden" aria-hidden="true" />
-      <input required name="name" placeholder="Your name" aria-label="Your name"
+      <input required name="name" placeholder={ui.namePlaceholder} aria-label={ui.namePlaceholder}
              class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze" />
-      <input required type="email" name="email" placeholder="Your email" aria-label="Your email"
+      <input required type="email" name="email" placeholder={ui.emailPlaceholder} aria-label={ui.emailPlaceholder}
              class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze" />
-      <textarea required name="message" rows="4" placeholder="How can I help you?" aria-label="How can I help you?"
+      <textarea required name="message" rows="4" placeholder={ui.messagePlaceholder} aria-label={ui.messagePlaceholder}
              class="w-full rounded-sm border border-bronze/30 bg-milk px-4 py-3 text-sm outline-none focus:border-bronze"></textarea>
       <button type="submit"
              class="w-full rounded-sm bg-bronze px-6 py-3 text-xs uppercase tracking-widest text-milk transition hover:bg-bronze-dark disabled:opacity-60">
-        Send a Request
+        {ui.sendRequest}
       </button>
       <p id="form-status" role="status" aria-live="polite" class="hidden text-sm"></p>
     </form>

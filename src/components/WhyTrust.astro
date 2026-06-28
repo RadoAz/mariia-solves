@@ -1,0 +1,21 @@
+---
+import Icon from "./Icon.astro";
+import { getContent } from "../data/content";
+const { whyTrust } = getContent(Astro.currentLocale);
+---
+<section id="why" class="bg-milk">
+  <div class="mx-auto max-w-4xl px-6 py-20 text-center">
+    <p class="label">{whyTrust.label}</p>
+    <p class="mx-auto mt-5 max-w-2xl font-serif text-2xl leading-snug text-ink md:text-3xl">
+      {whyTrust.body}
+    </p>
+    <ul class="mt-10 flex flex-wrap justify-center gap-3">
+      {whyTrust.items.map((item) => (
+        <li class="flex items-center gap-2 rounded-full border border-bronze/30 bg-cream px-4 py-2 text-sm text-ink">
+          <Icon name="check" class="h-4 w-4 shrink-0 text-bronze" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

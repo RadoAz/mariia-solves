@@ -1,10 +1,11 @@
 ---
-import { site } from "../data/content";
+import { site, getContent } from "../data/content";
+const c = getContent(Astro.currentLocale);
 ---
 <footer class="border-t border-bronze/15 bg-cream">
   <div class="mx-auto flex max-w-6xl flex-col items-center gap-2 px-6 py-10 text-center">
     <p class="font-serif text-lg tracking-wide">MARIIA SOLVES</p>
-    <p class="label">{site.location}</p>
-    <p class="mt-2 text-xs text-muted">© {site.year} Mariia Solves. All rights reserved.</p>
+    <p class="label">{c.location}</p>
+    <p class="mt-2 text-xs text-muted">© {site.year} Mariia Solves. {c.ui.rights}</p>
   </div>
 </footer>

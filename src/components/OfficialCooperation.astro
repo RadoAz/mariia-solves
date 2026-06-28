@@ -1,0 +1,23 @@
+---
+import Icon from "./Icon.astro";
+import { getContent } from "../data/content";
+const { cooperation } = getContent(Astro.currentLocale);
+---
+<section id="cooperation" class="bg-cream">
+  <div class="mx-auto grid max-w-6xl items-center gap-10 px-6 py-20 md:grid-cols-2">
+    <div>
+      <p class="label">{cooperation.label}</p>
+      {cooperation.lines.map((line) => (
+        <p class="mt-4 font-serif text-2xl leading-snug text-ink md:text-3xl">{line}</p>
+      ))}
+    </div>
+    <ul class="grid gap-3 sm:grid-cols-2">
+      {cooperation.items.map((item) => (
+        <li class="flex items-center gap-2 rounded-sm border border-bronze/25 bg-milk px-4 py-3 text-sm text-ink">
+          <Icon name="shield" class="h-4 w-4 shrink-0 text-bronze" />
+          {item}
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
